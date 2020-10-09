@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": ["webpack-env", "mocha", "chai"],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "src/main.ts",
+    "src/api/index.js",
+    "src/store/state.js",
+    "src/store/mutations.js",
+    "src/store/index.js",
+    "src/store/getters.js",
+    "src/store/actions.js",
+    "src/store/modules/list.js",
+    "src/store/modules/index.js",
+    "src/router/routes.js",
+    "src/router/index.js",
+    "src/common/hook/index.js",
+    "tests/unit/example.spec.js",
+    "src/registerServiceWorker.js",
+    "src/common/utils/index.js"
+  ],
+  "exclude": ["node_modules"]
+}

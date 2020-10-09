@@ -1,0 +1,23 @@
+/**
+ * 微信环境下全局性的样式。
+ *
+ * 微信环境下，在app.vue挂载阶段会在body上注入名为"wx"的类名。
+ *
+ * 微信设计规范：
+ *
+ * - 主色 #FFC200
+ * - 无头。
+ */
+
+/**
+ * 微信下的mint ui
+ */
+.wx .mint-button--primary{background-color: #FFD85D;}
+/* .wx .mint-msgbox-confirm{color: #FFD85D;} */
+
+/**
+ * 基础组件
+ */
+.wx .app-wrapper .app-header{display: none;}
+
+

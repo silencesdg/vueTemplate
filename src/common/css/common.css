@@ -1,0 +1,6 @@
+img[lazy="loading"], div[lazy="loading"]{
+  display: block;
+  width: 36px!important; 
+  height: 36px!important;
+  margin: 0 auto; 
+}

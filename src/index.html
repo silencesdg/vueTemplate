@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!--DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="//apis.map.qq.com" />
+    <link rel="dns-prefetch" href="//3gimg.qq.com" />
+    <link rel="dns-prefetch" href="//res.wx.qq.com" />
+    <meta charset="UTF-8" />
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true" />
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application" />
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="applicable-device" content="mobile" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>vue</title>
+    <style>
+      /* 禁掉文字选中效果 */
+      html,
+      body {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <%= vconsole %>
+    <script>
+      document.getElementsByTagName("html")[0].style.fontSize =
+        100 * (document.documentElement.clientWidth / 750) + "px";
+    </script>
+
+    <script>
+      window.__SITE_ROOT__ = "";
+
+      function GetQueryString(paramKey) {
+        var url = window.location.href.split("?")[1] || "";
+        var params = {};
+        var arr = {},
+          i,
+          j;
+
+        url = url.replace(/#.*$/, "").split("&");
+
+        for (i = 0, j = url.length; i < j; i++) {
+          var num = url[i].indexOf("=");
+          if (num > 0) {
+            var key = decodeURIComponent(url[i].substring(0, num));
+            var val = url[i].substr(num + 1) || "";
+            try {
+              val = decodeURIComponent(val);
+            } catch (ex) {}
+            params[key] = val;
+          }
+        }
+        return params[paramKey];
+      }
+
+      // 兼容其他根路由。
+      var roots = [""],
+        iswxPage = false;
+      for (var i = 0; i < roots.length; i++) {
+        if (location.pathname.indexOf(roots[i]) == 0) {
+          window.__SITE_ROOT__ = roots[i] + "/";
+          iswxPage = true;
+          break;
+        }
+      }
+    </script>
+
+    <!-- webp脚本 -->
+
+    <!-- wxjssdk -->
+    <script src="//res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+  </head>
+
+  <body style="background: #FFF;">
+    <div id="app"></div>
+
+    <script>
+      // 最快速的判断平台。
+      if (iswxPage || /MicroMessenger/gi.test(window.navigator.userAgent)) {
+        iswxPage = true;
+        document.body.classList.add("wx");
+      }
+    </script>
+  </body>
+</html>
